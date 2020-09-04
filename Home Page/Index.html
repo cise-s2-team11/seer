@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>Seer App</title>
+</head>
+<body>
+	<!--Header box containing websites title for display -->
+	<div id="header">
+		<p><strong>Seer</strong></p>
+	</div>
+	
+	<!--Navigation Bar with links to each page-->
+	<div id="nav">
+		<div id="home">
+			<a href="index.html">Submit an Article</a>
+		</div>
+		<div id="post">
+			<a href="poststatusform.html">Login/Signup</a>
+		</div>
+		<div id="search">
+			<a href="searchstatusform.html">About</a>
+		</div>
+	</div>
+	
+	<!--Main content box-->
+	<div id="main">
+	
+		<div id="info">
+			<p><strong>Software Engineering Evidence Repository</strong></p>
+			<p>A searchable database of evidence which has been curated by SE experts in the Software Engineering Research lab (SERL) at AUT.</p>
+		</div>
+		
+		<!--Form for searching status database-->
+		<div id="form">
+			
+			<!--Links to poststatusprocess.php page with GET method-->
+			<form action = "searchstatusprocess.php" method = "get">
+				<label>&nbsp <strong>Search Articles:</strong> <br><span id="inputs"><input type="text" name="search"  size="70"> 
+				<input id="submitButton" type="submit" value="Search"></span></label>
+				<label id="filter"><br> &nbsp&nbsp&nbsp + add filters</label>
+			</form>
+		</div>
+		
+		<div id="footer">
+			<pre>
+Seer Application
+CISE Semester 2
+Team 11
+			</pre>
+		</div>
+		
+	</div>
+</body>
+</html> 
