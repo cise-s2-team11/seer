@@ -10,7 +10,7 @@ function App() {
         <p>
         SEER - CISE S2 TEAM 11
         </p>
-        <p>Coming soon.</p>
+        <p>Coming soon...</p>
       </header>
     </div>
   );
