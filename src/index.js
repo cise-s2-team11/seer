@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './Green.css';
+import './Style.css';
 import * as serviceWorker from './serviceWorker';
 import NavBar from './NavBar';
 import Hero from './Hero';

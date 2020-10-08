@@ -18,7 +18,7 @@ function Search() {
               <div>
                 <div data-target="#panel-1" class="accordion-panel-title" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
                   <span class="h6 mb-0">Refine your search</span>
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="injected-svg icon" data-src="https://leap.mediumra.re/assets/img/icons/interface/plus.svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="https://www.w3.org/2000/svg" class="injected-svg icon" data-src="https://leap.mediumra.re/assets/img/icons/interface/plus.svg" xmlnsXlink="http://www.w3.org/1999/xlink">
 <path d="M19 11H5C4.44772 11 4 11.4477 4 12C4 12.5523 4.44772 13 5 13H19C19.5523 13 20 12.5523 20 12C20 11.4477 19.5523 11 19 11Z" fill="#212529"></path>
 <path d="M13 19L13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5L11 19C11 19.5523 11.4477 20 12 20C12.5523 20 13 19.5523 13 19Z" fill="#212529"></path>
 </svg>
