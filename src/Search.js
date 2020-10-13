@@ -1,8 +1,9 @@
 import React from 'react';
-import * as Realm from "realm-web";
+//import * as Realm from "realm-web";
+import { useForm } from "react-hook-form";
 
-const REALM_APP_ID = "seer-0-omaxp"; 
-const app = new Realm.App({ id: REALM_APP_ID });
+//const REALM_APP_ID = "seer-0-omaxp"; 
+//const app = new Realm.App({ id: REALM_APP_ID });
 
 const {
   Stitch,
@@ -11,19 +12,37 @@ const {
 } = require('mongodb-stitch-browser-sdk');
 
 const client = Stitch.initializeDefaultAppClient('seer-0-omaxp');
-
 const db = client.getServiceClient(RemoteMongoClient.factory, 'mongodb-atlas').db('db');
 
-client.auth.loginWithCredential(new AnonymousCredential()).then(user =>
-db.collection('evidences').find({}, { limit: 5}).asArray()
-).then(docs => {
-  console.log("Found docs", docs)
-  console.log("[MongoDB Realm] Connected to Realm")
-}).catch(err => {
-  console.error(err)
-});
+//const [keyword, setKeyword] = React.useState("");
+
+function submitForm(data) {
+  if (data) {
+    client.auth.loginWithCredential(new AnonymousCredential()).then(user =>
+      db.collection('evidences').find({ "keywords" : data }, { limit: 5}).asArray()
+      ).then(docs => {
+        console.log("Found docs", docs)
+        console.log("[MongoDB Realm] Connected to Realm")
+      }).catch(err => {
+        console.error(err)
+      });
+  } else {
+    client.auth.loginWithCredential(new AnonymousCredential()).then(user =>
+      db.collection('evidences').find({}, { limit: 5}).asArray()
+      ).then(docs => {
+        console.log("Found docs", docs)
+        console.log("[MongoDB Realm] Connected to Realm")
+      }).catch(err => {
+        console.error(err)
+      });
+  }
+}
 
 function Search() {
+  const { register, handleSubmit, watch } = useForm();
+  const onSubmit = data => submitForm(data.keywords);
+  console.log(watch("keywords"));
+
   return (
     <div>
     <section class="bg-primary-alt">
@@ -32,10 +51,10 @@ function Search() {
           <div class="col-xl-8 col-lg-9">
             <h3 class="h2">Begin your search</h3>
             <div class="my-4">
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
               <div class="form-group">
                 <label for="keywords">Keywords</label>
-                <input name="keywords" id="keywords" type="text" class="form-control form-control-lg" placeholder="Enter search query"></input>
+                <input name="keywords" id="keywords" type="text" class="form-control form-control-lg" placeholder="Enter search query" ref={register}></input>
               </div>
               <div>
                 <div data-target="#panel-1" class="accordion-panel-title" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
