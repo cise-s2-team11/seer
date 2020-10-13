@@ -1,12 +1,11 @@
 import React from 'react';
-import './Style.css';
 
 function NavBar() {
   return (
     <div class="navbar-container ">
       <nav class="navbar navbar-expand-lg bg-primary-3 navbar-dark">
         <div class="container">
-          <a class="navbar-brand fade-page" href="%PUBLIC_URL%">
+          <a class="navbar-brand fade-page" href="#">
             SEER
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,7 +15,7 @@ function NavBar() {
           <div class="collapse navbar-collapse justify-content-end">
             <div class="py-2 py-lg-0">
               <ul class="navbar-nav">
-                <li class="nav-item"><a href="#" class="nav-link">Submit an Article</a>
+                <li class="nav-item"><a href="/submit.html" class="nav-link">Submit an Article</a>
                 </li>
                 <li class="nav-item"><a href="#" class="nav-link">Sign Up</a>
                 </li>

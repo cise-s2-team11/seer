@@ -1,5 +1,27 @@
 import React from 'react';
-// import './Style.css';
+import * as Realm from "realm-web";
+
+const REALM_APP_ID = "seer-0-omaxp"; 
+const app = new Realm.App({ id: REALM_APP_ID });
+
+const {
+  Stitch,
+  RemoteMongoClient,
+  AnonymousCredential
+} = require('mongodb-stitch-browser-sdk');
+
+const client = Stitch.initializeDefaultAppClient('seer-0-omaxp');
+
+const db = client.getServiceClient(RemoteMongoClient.factory, 'mongodb-atlas').db('db');
+
+client.auth.loginWithCredential(new AnonymousCredential()).then(user =>
+db.collection('evidences').find({}, { limit: 5}).asArray()
+).then(docs => {
+  console.log("Found docs", docs)
+  console.log("[MongoDB Realm] Connected to Realm")
+}).catch(err => {
+  console.error(err)
+});
 
 function Search() {
   return (
