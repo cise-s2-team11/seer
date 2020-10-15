@@ -1,4 +1,5 @@
 import React from 'react';
+import './Style.css';
 
 function NavBar() {
   return (
@@ -15,7 +16,7 @@ function NavBar() {
           <div class="collapse navbar-collapse justify-content-end">
             <div class="py-2 py-lg-0">
               <ul class="navbar-nav">
-                <li class="nav-item"><a href="/submit.html" class="nav-link">Submit an Article</a>
+                <li class="nav-item"><a href="#" class="nav-link">Submit an Article</a>
                 </li>
                 <li class="nav-item"><a href="#" class="nav-link">Sign Up</a>
                 </li>
