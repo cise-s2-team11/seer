@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -22,7 +22,7 @@
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -32,52 +32,27 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <script src="https://s3.amazonaws.com/stitch-sdks/js/bundles/4.6.0/stitch.js"></script>
     <title>SEER - CISE S2 TEAM 11</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <section class="bg-primary-alt" style="padding-top:0;">
-      <div class="container">
-        <div class="row justify-content-center" id="search-results">
-        </div>
-      </div>
-    </section>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
 
-    <footer class=" bg-primary-3 text-light">
-      <div class="container">
-        <div class="row justify-content-between">
-          <div class="col d-flex flex-column align-items-center align-items-md-start">
-            <a class="navbar-brand" href="index.html">SEER</a>
-            <ul class="nav mt-3">
-              <li class="nav-item"><a href="#" class="nav-link pl-0 mr-2">About</a>
-              </li>
-              <li class="nav-item"><a href="#" class="nav-link pl-0 mr-2">Submit an Article</a>
-              </li>
-              <li class="nav-item"><a href="#" class="nav-link pl-0 mr-2">Join the Team</a>
-              </li>
-              <li class="nav-item"><a href="#" class="nav-link pl-0 mr-2">Sign-up/Login</a>
-              </li>
-            </ul>
-            <small class="text-muted mt-2 d-none d-lg-block">&copy;2020 All Rights Reserved. SEER by Team 11 for CISE S2 2020.</small>
-          </div>
-          <div class="col-lg-5 col-md-6 mt-3 mt-lg-0">
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
 
-            <div class="d-flex justify-content-center justify-content-md-end mt-3">
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-    
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
     <!-- Required vendor scripts (Do not remove) -->
     <script type="text/javascript" src="assets/js/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/popper.min.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.js"></script>
 
-    <!-- Optional Scripts (Remove the plugin script here and comment initializer script out of index.js if site does not use that feature) -->
+    <!-- Optional Vendor Scripts (Remove the plugin script here and comment initializer script out of index.js if site does not use that feature) -->
 
     <!-- AOS (Animate On Scroll - animates elements into view while scrolling down) -->
     <script type="text/javascript" src="assets/js/aos.js"></script>
@@ -89,6 +64,8 @@
     <script type="text/javascript" src="assets/js/smooth-scroll.polyfills.min.js"></script>
     <!-- SVGInjector (replaces img tags with SVG code to allow easy inclusion of SVGs with the benefit of inheriting colors and styles)-->
     <script type="text/javascript" src="assets/js/svg-injector.umd.production.js"></script>
+    <!-- TwitterFetcher (displays a feed of tweets from a specified account)-->
+    <script type="text/javascript" src="assets/js/twitterFetcher_min.js"></script>
     <!-- Typed text (animated typing effect)-->
     <script type="text/javascript" src="assets/js/typed.min.js"></script>
     <!-- Required theme scripts (Do not remove) -->
