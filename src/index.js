@@ -5,14 +5,12 @@ import * as serviceWorker from './serviceWorker';
 import NavBar from './NavBar';
 import Hero from './Hero';
 import Search from './Search';
-import Footer from './Footer';
 
 ReactDOM.render(
   <React.StrictMode>
     <NavBar />
     <Hero />
     <Search />
-    <Footer />
   </React.StrictMode>,
   document.getElementById('root')
 );
