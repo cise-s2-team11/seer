@@ -6,6 +6,7 @@ import NavBar from './NavBar';
 import Hero from './Hero';
 import Search from './Search';
 
+//React to render the homepage
 ReactDOM.render(
   <React.StrictMode>
     <NavBar />

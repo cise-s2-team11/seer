@@ -1,5 +1,6 @@
 import React from 'react';
 
+//Description of what our website is about
 function Hero() {
   return (
     <div>

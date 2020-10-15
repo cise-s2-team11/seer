@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Footer which gives links to redirect users and displays a copyright notice
 function Footer() {
   return (
     <div>
@@ -7,7 +8,7 @@ function Footer() {
       <div class="container">
         <div class="row justify-content-between">
           <div class="col d-flex flex-column align-items-center align-items-md-start">
-            <a class="navbar-brand" href="index.html">SEER</a>
+            <a class="navbar-brand" href="/">SEER</a>
             <ul class="nav mt-3">
               <li class="nav-item"><a href="#" class="nav-link pl-0 mr-2">About</a>
               </li>
