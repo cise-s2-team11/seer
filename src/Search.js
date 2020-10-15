@@ -1,19 +1,56 @@
 import React from 'react';
-// import './Style.css';
+import { useForm } from "react-hook-form";
+
+const {
+  Stitch,
+  RemoteMongoClient,
+  AnonymousCredential
+} = require('mongodb-stitch-browser-sdk');
+
+const client = Stitch.initializeDefaultAppClient('seer-0-omaxp');
+const db = client.getServiceClient(RemoteMongoClient.factory, 'mongodb-atlas').db('db');
+
+function submitForm(data) {
+  if (data) {
+    client.auth.loginWithCredential(new AnonymousCredential()).then(user =>
+      db.collection('evidences').find({ "keywords" : data }, { limit: 5}).asArray()
+      )
+      .then(docs => {
+        DisplayResults(docs)
+      })
+      .catch(err => {
+        console.error(err)
+      });
+  } else {
+    client.auth.loginWithCredential(new AnonymousCredential()).then(user =>
+      db.collection('evidences').find({}, { limit: 5}).asArray()
+      )
+      .then(docs => {
+        DisplayResults(docs)
+      })
+      .catch(err => {
+        console.error(err)
+      });
+  }
+}
 
 function Search() {
+  const { register, handleSubmit, watch } = useForm();
+  const onSubmit = data => submitForm(data.keywords);
+  console.log(watch("keywords"));
+
   return (
     <div>
-    <section class="bg-primary-alt">
+    <section class="bg-primary-alt" style={{ 'padding-bottom': 0 }}> 
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-xl-8 col-lg-9">
             <h3 class="h2">Begin your search</h3>
             <div class="my-4">
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
               <div class="form-group">
                 <label for="keywords">Keywords</label>
-                <input name="keywords" id="keywords" type="text" class="form-control form-control-lg" placeholder="Enter search query"></input>
+                <input name="keywords" id="keywords" type="text" class="form-control form-control-lg" placeholder="Enter search query" ref={register}></input>
               </div>
               <div>
                 <div data-target="#panel-1" class="accordion-panel-title" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="panel-1">
@@ -67,5 +104,49 @@ function Search() {
     </div>
   );
 }
+
+function DisplayResults(data) {
+  const searchResultsBody = document.getElementById("search-results");
+  const resultsCards = data.map(dat => {
+    return `
+      <div class="col-xl-8 col-lg-9">
+            <div class="row">
+              <div class="col">
+                <a href="${dat.url}" target="_blank" class="card card-body justify-content-between">
+                  <div>
+                    <h2>${dat.title}</h2>
+                    <p>${dat.abstract}</p>
+                    <span class="text-small opacity-70"></span>
+                  </div>
+
+<div class="d-flex justify-content-between mt-3">
+                    <div class="text-small d-flex">
+                      <div class="mr-2">${dat.author}</div>
+                      <span class="opacity-70"></span>
+                      
+                    </div>
+  
+  <div class="text-small d-flex">
+                      <div class="mr-2 opacity-70">${dat.journal}, ${dat.month} ${dat.year}</div>
+   
+                      
+                      
+                    </div>
+                    
+<span class="badge bg-primary-alt text-primary">
+DOI: ${dat.doi}
+                    </span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+    `;
+  });
+  searchResultsBody.innerHTML = resultsCards.join("");
+
+}
+
+
 
 export default Search;
