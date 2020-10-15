@@ -1,12 +1,11 @@
 import React from 'react';
 
 function NavBar() {
-   // Top left SEER takes you to the hompage
   return (
     <div class="navbar-container ">
       <nav class="navbar navbar-expand-lg bg-primary-3 navbar-dark">
         <div class="container">
-          <a class="navbar-brand fade-page" href="/">
+          <a class="navbar-brand fade-page" href="#">
             SEER
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
