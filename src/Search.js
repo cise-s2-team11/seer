@@ -10,6 +10,7 @@ const {
 const client = Stitch.initializeDefaultAppClient('seer-0-omaxp');
 const db = client.getServiceClient(RemoteMongoClient.factory, 'mongodb-atlas').db('db');
 
+// Handles Form Submission
 function submitForm(data) {
   if (data) {
     client.auth.loginWithCredential(new AnonymousCredential()).then(user =>
@@ -34,6 +35,7 @@ function submitForm(data) {
   }
 }
 
+// Searches the database
 function Search() {
   const { register, handleSubmit, watch } = useForm();
   const onSubmit = data => submitForm(data.keywords);
@@ -105,6 +107,7 @@ function Search() {
   );
 }
 
+// Displays Search Results
 function DisplayResults(data) {
   const searchResultsBody = document.getElementById("search-results");
   const resultsCards = data.map(dat => {
